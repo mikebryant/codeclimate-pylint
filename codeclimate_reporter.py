@@ -52,9 +52,15 @@ class CodeClimateReporter(BaseReporter):
             'categories': self.category_map[message.category],
             'location': {
                 'path': message.path,
-                'lines': {
-                    'begin': message.line,
-                    'end': message.line,
+                'positions': {
+                    'begin': {
+                        'line': message.line,
+                        'column': message.column,
+                    },
+                    'end': {
+                        'line': message.line,
+                        'column': message.column,
+                    },
                 },
             },
             'severity': self.severity_map[message.category],
