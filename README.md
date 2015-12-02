@@ -16,6 +16,14 @@ In order to build the docker image, run
 docker build -t codeclimate/codeclimate-pylint .
 ```
 
+### Limitations
+
+CodeClimate currently disallows internet access from engines. Consequently, getting
+the dependencies for the project being analysed is impossible.
+
+The checks disabled due to this are:
+* `import-error`
+
 ### Need help?
 
 For help with Pylint, [check out their documentation](http://docs.pylint.org/).
