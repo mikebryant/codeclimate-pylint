@@ -4,6 +4,8 @@ import json
 from pylint.interfaces import IReporter
 from pylint.reporters import BaseReporter
 
+from message_overrides import OVERRIDES
+
 
 class CodeClimateReporter(BaseReporter):
     """Report messages and layouts in JSON."""
@@ -70,6 +72,10 @@ class CodeClimateReporter(BaseReporter):
         }
         if '\n' in message.msg:
             msg['content'] = message.msg
+
+        # Apply overrides
+        msg.update(OVERRIDES.get(message.symbol, {}))
+
         msg_json = json.dumps(msg, indent=4)
         self.writeln("%s\0" % msg_json)
 
