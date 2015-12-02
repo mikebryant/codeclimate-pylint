@@ -6,6 +6,10 @@ from pylint.reporters import BaseReporter
 
 from message_overrides import OVERRIDES
 
+BASELINE_REMEDIATION_VALUE = 50000
+EASY_REMEDIATION = BASELINE_REMEDIATION_VALUE
+MEDIUM_REMEDIATION = BASELINE_REMEDIATION_VALUE * 3
+HARD_REMEDIATION = BASELINE_REMEDIATION_VALUE * 6
 
 class CodeClimateReporter(BaseReporter):
     """Report messages and layouts in JSON."""
@@ -68,6 +72,7 @@ class CodeClimateReporter(BaseReporter):
                     },
                 },
             },
+            'remediation_points': MEDIUM_REMEDIATION,
             'severity': self.severity_map[message.category],
         }
         if '\n' in message.msg:
