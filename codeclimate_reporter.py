@@ -50,6 +50,9 @@ class CodeClimateReporter(BaseReporter):
             'check_name': message.symbol,
             'description': message.msg.replace('\'', '`').splitlines()[0],
             'categories': self.category_map[message.category],
+            'content': {
+                'body': self.linter.msgs_store.check_message_id(message.symbol).descr,
+            },
             'location': {
                 'path': message.path,
                 'positions': {
