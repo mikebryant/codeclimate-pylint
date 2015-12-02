@@ -8,6 +8,11 @@
 2. Run `codeclimate engines:enable pylint`. This command both installs the engine and enables it in your `.codeclimate.yml` file.
 3. You're ready to analyze! Browse into your project's folder and run `codeclimate analyze`.
 
+### Configuration
+
+Like running pylint locally, you can configure it by including a `pylintrc` file in your repository.
+Consult the [pylint documentation](http://docs.pylint.org/run.html#command-line-options) for more details.
+
 ### Building
 
 In order to build the docker image, run
