@@ -76,7 +76,7 @@ class CodeClimateReporter(BaseReporter):
             'severity': self.severity_map[message.category],
         }
         if '\n' in message.msg:
-            msg['content'] = message.msg
+            msg['content']['body'] += "\nDetails:\n" + message.msg
 
         # Apply overrides
         msg.update(OVERRIDES.get(message.symbol, {}))
