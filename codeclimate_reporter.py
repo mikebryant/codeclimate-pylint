@@ -13,8 +13,8 @@ class CodeClimateReporter(BaseReporter):
     name = 'codeclimate'
     extension = 'json'
     category_map = {
-        'convention': ['Clarity', 'Style'],
-        'refactor': ['Clarity', 'Complexity'],
+        'convention': ['Style'],
+        'refactor': ['Complexity'],
         'warning': ['Bug Risk'],
         'error': ['Bug Risk'],
         'fatal': ['Bug Risk'],
