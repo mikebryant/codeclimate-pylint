@@ -52,7 +52,10 @@ class CodeClimateReporter(BaseReporter):
             'description': message.msg.replace('\'', '`').splitlines()[0],
             'categories': self.category_map[message.category],
             'content': {
-                'body': self.linter.msgs_store.check_message_id(message.symbol).descr,
+                'body': (
+                    self.linter.msgs_store.check_message_id(message.symbol).descr +
+                    '\nDocumentation courtesy of the Pylint project: http://pylint.org/'
+                ),
             },
             'location': {
                 'path': message.path,
